@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Guitar Maintenance</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    {% load static %} 
+    {% block css %}
+    {% endblock %}
+    <link rel='stylesheet' href="{% static 'core/css/sty.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+
+ <header>
+
+     <img src= "{% static 'core/img/guitar.png' %}" alt="logo">
+     <div class="titulo">
+    <h2>Guitar Maintenance</h2>
+     </div>
+     <nav>
+         <ul>
+             <li><a href="{% url 'home' %}">Home</a></li>
+
+             <li><a href="{% url 'galeria' %}">Galeria</a></li>
+
+             <li><a href="{% url 'nuevo instrumento' %}">Nuevo</a></li>
+
+             <li><a href="{% url 'listado de instrumentos' %}">Listado</a></li>
+
+             {% if user.is_authenticated %}
+
+             <li><a href="#">Usuario: {{ user.username }}</a></li>
+             
+
+             <li><a href="{% url 'logout' %}">Cerrar sesiòn</a></li>
+             {% else %}
+
+             <li><a href="{% url 'login' %}">Iniciar sesiòn</a></li>
+
+             <li><a href="{% url 'registro de usuario' %}">Registrar</a></li>
+
+             {% endif %}
+             <p>
+
+             <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+
+             <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+
+             <li><a href="https://www.google.com/intl/es-419/gmail/about/" target="_blank">Correo</a></li>
+
+             <li><a href="https://www.youtube.com"  target="_blank">Youtube</a></li>
+
+        </ul>
+     </nav>
+   </header>
+
+
+   <div class="container">
+
+    {% block contenido %}
+
+    {% endblock %}
+
+   </div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

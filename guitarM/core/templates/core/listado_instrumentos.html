@@ -1,0 +1,46 @@
+{% extends 'core/base.html'%}
+
+{% load static %}
+
+{% block javascript %} 
+
+<script src="{% static 'core/js/confirmacion.js' %}"></script>
+
+{% endblock %}
+
+{% block contenido %}
+
+<h2>Listado de Instrumentos</h2>
+
+<table class="table table-striped">
+    <tr>
+        <th>Marca</th>
+        <th>Modelo</th>
+        <th>Mantenciòn</th>
+        <th>Tipo instrumento</th>
+        <th>Fecha entrega</th>
+        <th>Opciones</th>
+    </tr>
+
+
+   {% for i in instrumento %}
+
+  <tr>
+       <td>{{ i.marca }}</td>
+       <td>{{ i.modelo }}</td>
+       <td>{{ i.mantencion }}</td>
+       <td>{{ i.tipo }}</td>
+       <td>{{ i.fecha_entrega }}</td>
+       <td>
+           <a href="{% url 'modificar instrumento' i.id %}">Modificar</a>
+           <a href="#" onclick="confirmarEliminacion({{i.id}})">Eliminar</a>
+ 
+       </td>
+       
+ </tr>
+
+   {% endfor %}
+
+</table>
+
+{% endblock %}

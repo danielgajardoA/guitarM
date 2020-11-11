@@ -1,0 +1,25 @@
+{% extends 'core/base.html'%}
+
+
+{% block contenido %}
+
+
+<h2>Modificar Instrumento</h2>
+
+<form action="" method="POST">
+
+    {% csrf_token %}
+
+   <table>
+    
+    {{ form.as_table }}
+
+   </table>
+   
+   <input type="submit" value="Modificar" class="btn btn-warning">
+
+</form>
+
+{{ mensaje }}
+
+{% endblock %}
